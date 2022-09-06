@@ -1,5 +1,5 @@
 -- thanks to lesson 17
-INSERT INTO departments(name)
+INSERT INTO departments (name)
   VALUES
    ('Manager'),
    ('Supervisor'),
@@ -7,19 +7,17 @@ INSERT INTO departments(name)
    ('employee');
 
 
-INSERT INTO roles(title, department_id, salary)
+INSERT INTO roles (title, department_id, salary)
   VALUES
    ('Head Manager', 1, 89000),
    ('Supervisor',2, 70000),
    ('Lead official', 3, 40000),
    ('Employee', 4, 35000);
     
-INSERT INTO employees(role_id, first_name, last_name, manager_id)
+    -- keep getting error with the fist_name i spell wrong its first_name
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
  VALUES
-  (1, 'Froger', 'Leap', NULL),
-  (2, 'Manny', 'Hugging', NULL),
-  (3, 'Lappy', 'Lemon', NULL),
-  (4, 'Ralph', 'Machio', NUll);
-
-
--- SELECT * FROM tracking_employees;
+  ('Froger', 'Leap', 1, NULL),
+  ('Manny', 'Hugging', 3, NULL),
+  ('Lappy', 'Lemon', 2, NULL),
+  ('Ralph', 'Machio', 4, NUll);
