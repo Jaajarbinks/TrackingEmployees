@@ -1,5 +1,5 @@
 -- thanks to lesson 17
-INSERT INTO departments(department_name)
+INSERT INTO departments(name)
   VALUES
    ('Manager'),
    ('Supervisor'),
@@ -7,14 +7,14 @@ INSERT INTO departments(department_name)
    ('employee');
 
 
-INSERT INTO roles(position, department_id, salary)
+INSERT INTO roles(title, department_id, salary)
   VALUES
    ('Head Manager', 1, 89000),
    ('Supervisor',2, 70000),
    ('Lead official', 3, 40000),
    ('Employee', 4, 35000);
     
-INSERT INTO employees(role_id, first_name, last_name, employee_id)
+INSERT INTO employees(role_id, first_name, last_name, manager_id)
  VALUES
   (1, 'Froger', 'Leap', NULL),
   (2, 'Manny', 'Hugging', NULL),

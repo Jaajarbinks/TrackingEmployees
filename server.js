@@ -19,7 +19,7 @@ const db = mysql.createConnection(
     password: '',
     database: 'tracking_db',
   },
-  console.log(`your connected to the database.`),
+  console.log(`Your connected to the database.`),
 )
 
 // this to to go into the database to use for the node part
@@ -51,8 +51,14 @@ app
     })
   })
   //   // this is to make the db
-  .get('/api/department', (req, res) => {
-    const sql = `SELECT id, department_name AS position FROM departments`
+  .get('/api/departments', (req, res) => {
+    db.query('SELECT * FROM departments', (req, res) => {
+      if (err) {
+        console.error(err)
+        res.send(err)
+      }
+      res.json(result)
+    })
 
     db.query(sql, (err, rows) => {
       if (err) {
