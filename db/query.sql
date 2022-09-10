@@ -1,3 +1,4 @@
-SELECT departments
+SELECT departments.name, roles.salary
 FROM departments
-JOIN   ON
+JOIN  roles ON roles.department_id = departments.id
+
