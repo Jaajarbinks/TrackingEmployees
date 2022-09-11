@@ -66,48 +66,27 @@ const renderDepartmentIntoChoices = () => {
 }
 
 const addRole = async () => {
-  db.query('SELECT * FROM departments', (err, departments) => {
-    if (err) console.error(err)
-    const departmentChoices = result.map((department) => {
-      return {
-        name: department.name,
-        value: department.id,
-      }
-    })
-    promptRole(departmentChoices)
-
-    // inquirer
-    //   .prompt([
-    //     {
-    //       name: 'title',
-    //       message: 'what is your role title',
-    //     },
-    //     {
-    //       name: 'salary',
-    //       message: 'how much do you make here?',
-    //     },
-    //     {
-    //       type: 'list',
-    //       message: 'whats your department',
-    //       name: 'departmentId',
-    //       choices: departments.map(({ name, id }) => {
-    //         return {
-    //           name,
-    //           value: id,
-    //         }
-    //       }),
-    //     },
-    //   ])
-    //   .then(({ title, salary, departmentId }) => {
-    //     db.query(
-    //       'INSERT INTO roles (title, salary) VALUES (?, ?)',
-    //       [title, salary],
-    //       (err) => {
-    //         if (err) console.error(err)
-    //       },
-    //     )
-    // })
-  })
+  const { title, salary, department_id } = await inquirer.prompt([
+    {
+      name: 'title',
+      message: 'what is your title?',
+    },
+    {
+      name: 'salary',
+      message: 'how much do you make?',
+    },
+    {
+      name: 'departmentId',
+      message: 'what is the department id',
+    },
+  ])
+  db.query(
+    'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)',
+    [title, salary, department_id],
+    (err, result) => {
+      if (err) console.error(err)
+    },
+  )
 }
 
 const addEmployee = async () => {
@@ -130,8 +109,16 @@ const addEmployee = async () => {
   )
 }
 
-const updateEmployee = () => {
-  console.log('why did you update an employee')
+const updateEmployee = async () => {
+  const { title } = await inquirer.prompt([
+    {
+      name: 'title',
+      message: 'update this role',
+    },
+  ])
+  db.query(
+    'UPDATE employees SET title = ${ title } WHERE id = ${req.params.id}',
+  )
 }
 
 const quit = () => {

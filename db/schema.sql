@@ -4,9 +4,9 @@ CREATE DATABASE tracking_db;
 
 USE tracking_db;
 
--- DROP TABLE IF EXISTS departments;
--- DROP TABLE IF EXISTS employees;
--- DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS roles;
 
 -- thanks to lesson 15 & 19 & mini project & picture from assets
 -- keep getting error for line 5 but it was at primary key(id),((i had to remove it))
