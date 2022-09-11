@@ -1,7 +1,7 @@
 {
   "dependencies": {
+    "asciiart-logo": "^0.2.7",
     "console.table": "^0.10.0",
-    "express": "^4.18.1",
     "inquirer": "^6.5.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
@@ -9,5 +9,24 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.2"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon index.js"
+  },
+  "name": "trackingemployees",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaajarbinks/TrackingEmployees.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaajarbinks/TrackingEmployees/issues"
+  },
+  "homepage": "https://github.com/Jaajarbinks/TrackingEmployees#readme",
+  "description": ""
 }
